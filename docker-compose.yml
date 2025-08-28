@@ -1,9 +1,0 @@
-services:
-  tuki-app:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    environment:
-      - NODE_ENV=production
-      - REACT_APP_DIRECTUS_URL=${REACT_APP_DIRECTUS_URL}
-    restart: unless-stopped
