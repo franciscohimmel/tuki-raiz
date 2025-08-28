@@ -1,0 +1,493 @@
+/* Dashboard Styles */
+.dashboard {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  min-height: 100vh;
+  background: #fafaf9;
+}
+
+/* Header */
+.dashboard-header {
+  background-color: #162d3d;
+  width: 100%;
+  padding: 20px 0;
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 32px;
+  color: rgba(255,255,255,0.7);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.header-navigation {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: 1px solid transparent;
+}
+
+.btn-primary {
+  background: #116dff;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.btn-primary:hover {
+  background: #0f5ce6;
+  box-shadow: 0 2px 8px rgba(17, 109, 255, 0.25);
+}
+
+.btn-secondary {
+  background: rgba(255,255,255,0.1);
+  color: white;
+  border-color: rgba(255,255,255,0.2);
+}
+
+.btn-secondary:hover {
+  background: rgba(255,255,255,0.15);
+}
+
+.tag {
+  background: rgba(17, 109, 255, 0.9);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Content */
+.dashboard-content {
+  padding: 48px 0;
+}
+
+.dashboard-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Saldo Consolidado */
+.saldo-consolidado {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+.saldo-card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(117, 117, 117, 0.15);
+  border: 1px solid #dfe5eb;
+  padding: 24px;
+  text-align: center;
+  position: relative;
+}
+
+.saldo-card-principal {
+  border-left: 4px solid #116dff;
+  background: linear-gradient(135deg, #f0f9ff 0%, #ffffff 100%);
+  grid-column: 1 / -1;
+}
+
+.saldo-card-disponible {
+  border-left: 4px solid #00c851;
+  background: linear-gradient(135deg, #f0f9ff 0%, #ffffff 100%);
+}
+
+.saldo-card-pendiente-cobrar {
+  border-left: 4px solid #ffbb33;
+  background: linear-gradient(135deg, #fffbf0 0%, #ffffff 100%);
+}
+
+.saldo-card-pendiente-pagar {
+  border-left: 4px solid #ff4444;
+  background: linear-gradient(135deg, #fff5f5 0%, #ffffff 100%);
+}
+
+.saldo-card-label {
+  font-size: 12px;
+  color: #7c98b6;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.saldo-card-value {
+  font-size: 32px;
+  font-weight: 800;
+  color: #162d3d;
+  margin-bottom: 8px;
+}
+
+.saldo-card-principal .saldo-card-value {
+  font-size: 42px;
+  color: #116dff;
+}
+
+.saldo-card-detail {
+  font-size: 12px;
+  color: #7c98b6;
+  font-weight: 500;
+}
+
+/* Alerta de vencimientos */
+.alert-vencimiento {
+  background: #fff3cd;
+  border: 1px solid #ffeaa7;
+  border-radius: 6px;
+  padding: 12px 16px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.alert-icon {
+  color: #856404;
+}
+
+.alert-text {
+  color: #856404;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Calendario Financiero */
+.calendario-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+.calendario-box {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(117, 117, 117, 0.15);
+  border: 1px solid #dfe5eb;
+  overflow: hidden;
+}
+
+.calendario-header {
+  padding: 20px;
+  border-bottom: 1px solid #dfe5eb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.calendario-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #162d3d;
+  margin: 0;
+}
+
+.calendario-total {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.total-cobrar {
+  color: #00c851;
+}
+
+.total-pagar {
+  color: #ff4444;
+}
+
+.calendario-content {
+  padding: 20px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.fecha-grupo {
+  margin-bottom: 20px;
+}
+
+.fecha-header {
+  font-size: 14px;
+  font-weight: 600;
+  color: #162d3d;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.concepto-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  margin-bottom: 8px;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+.concepto-item:hover {
+  background: #f8f9fa;
+}
+
+.concepto-cobrar {
+  background: rgba(0, 200, 81, 0.05);
+  border-left: 3px solid #00c851;
+}
+
+.concepto-pagar {
+  background: rgba(255, 68, 68, 0.05);
+  border-left: 3px solid #ff4444;
+}
+
+.concepto-descripcion {
+  flex: 1;
+  margin-right: 16px;
+}
+
+.concepto-proyecto {
+  font-size: 12px;
+  color: #7c98b6;
+  margin-top: 4px;
+}
+
+.concepto-monto {
+  font-weight: 600;
+}
+
+.monto-cobrar {
+  color: #00c851;
+}
+
+.monto-pagar {
+  color: #ff4444;
+}
+
+.no-data {
+  text-align: center;
+  color: #7c98b6;
+  font-style: italic;
+  padding: 20px;
+}
+
+/* Box/Card styles */
+.box {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(117, 117, 117, 0.15);
+  border: 1px solid #dfe5eb;
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+
+.box-header {
+  padding: 24px;
+  border-bottom: 1px solid #dfe5eb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.box-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #162d3d;
+  margin: 0;
+}
+
+.box-content {
+  padding: 24px;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 0;
+}
+
+.tab {
+  padding: 8px 16px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  color: #7c98b6;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+}
+
+.tab.active {
+  color: #116dff;
+  border-bottom-color: #116dff;
+}
+
+.tab:hover {
+  color: #162d3d;
+}
+
+/* Table */
+.table-container {
+  border: 1px solid #dfe5eb;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.table th {
+  background: #f8f9fa;
+  color: #162d3d;
+  font-weight: 600;
+  padding: 16px;
+  text-align: left;
+  border-bottom: 1px solid #dfe5eb;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.table td {
+  padding: 16px;
+  border-bottom: 1px solid #dfe5eb;
+  vertical-align: middle;
+}
+
+.table tr:hover {
+  background: #fafafa;
+}
+
+.table tr:last-child td {
+  border-bottom: none;
+}
+
+.badge {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge-efectivo {
+  background: rgba(0, 200, 81, 0.1);
+  color: #00c851;
+  border: 1px solid rgba(0, 200, 81, 0.2);
+}
+
+.badge-transferencia {
+  background: rgba(17, 109, 255, 0.1);
+  color: #116dff;
+  border: 1px solid rgba(17, 109, 255, 0.2);
+}
+
+.badge-cheque {
+  background: rgba(255, 187, 51, 0.1);
+  color: #ffbb33;
+  border: 1px solid rgba(255, 187, 51, 0.2);
+}
+
+.badge-pagado {
+  background: rgba(0, 200, 81, 0.1);
+  color: #00c851;
+  border: 1px solid rgba(0, 200, 81, 0.2);
+}
+
+.badge-pendiente {
+  background: rgba(255, 187, 51, 0.1);
+  color: #ffbb33;
+  border: 1px solid rgba(255, 187, 51, 0.2);
+}
+
+.badge-vencido {
+  background: rgba(255, 68, 68, 0.1);
+  color: #ff4444;
+  border: 1px solid rgba(255, 68, 68, 0.2);
+}
+
+.currency-danger {
+  color: #ff4444;
+  font-weight: 600;
+}
+
+.currency-positive {
+  color: #00c851;
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+
+  .header-actions {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .saldo-consolidado {
+    grid-template-columns: 1fr;
+  }
+
+  .calendario-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-container {
+    padding: 0 16px;
+  }
+
+  .tabs {
+    flex-wrap: wrap;
+  }
+
+  .tab {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+}

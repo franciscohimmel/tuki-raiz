@@ -1,0 +1,514 @@
+/*
+ * Twenty CRM - Inspired UI Theme
+ *
+ * This stylesheet adapts the original dashboard CSS to reflect the clean,
+ * minimalist, and modern aesthetic of UIs like Twenty CRM.
+ * Key changes include:
+ * - Use of CSS variables for a consistent and easily customizable theme.
+ * - A lighter, more neutral color palette with a single primary accent color.
+ * - Softer, more subtle shadows and borders.
+ * - A modern, sans-serif font stack.
+ * - Refined spacing and component styling for a cleaner look.
+ */
+
+:root {
+  /* Colors */
+  --background: #f9fafb; /* Light gray background */
+  --foreground: #111827; /* Dark gray for text */
+  --muted-foreground: #6b7280; /* Lighter gray for secondary text */
+  --border: #e5e7eb; /* Subtle border color */
+  --card: #ffffff; /* Card background */
+  --primary: #7c3aed; /* Primary accent color (purple) */
+  --primary-hover: #6d28d9;
+  --primary-foreground: #ffffff; /* Text on primary background */
+
+  /* State Colors (for badges, alerts, etc.) */
+  --success: #16a34a;
+  --success-bg: #f0fdf4;
+  --warning: #f59e0b;
+  --warning-bg: #fffbeb;
+  --danger: #ef4444;
+  --danger-bg: #fef2f2;
+  --info: #3b82f6;
+  --info-bg: #eff6ff;
+
+  /* UI Elements */
+  --border-radius-sm: 4px;
+  --border-radius-md: 6px;
+  --border-radius-lg: 8px;
+  --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.07), 0 1px 2px -1px rgb(0 0 0 / 0.07);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+/* Dashboard Styles */
+.dashboard {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  min-height: 100vh;
+  background: var(--background);
+  color: var(--foreground);
+}
+
+/* Header */
+.dashboard-header {
+  background-color: var(--card);
+  width: 100%;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.header-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header-navigation {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Generic Button */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: var(--border-radius-md);
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  border: 1px solid transparent;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: var(--primary-foreground);
+  border: none;
+}
+
+.btn-primary:hover {
+  background: var(--primary-hover);
+}
+
+.btn-secondary {
+  background: var(--card);
+  color: var(--foreground);
+  border-color: var(--border);
+  box-shadow: var(--shadow);
+}
+
+.btn-secondary:hover {
+  background: var(--background);
+  border-color: #d1d5db;
+}
+
+.tag {
+  background: var(--info-bg);
+  color: var(--info);
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+/* Content */
+.dashboard-content {
+  padding: 32px 0;
+}
+
+.dashboard-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Saldo Consolidado */
+.saldo-consolidado {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.saldo-card {
+  background: var(--card);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  padding: 24px;
+  text-align: left; /* Changed from center for a more modern feel */
+  position: relative;
+}
+
+/* Removed specific card backgrounds and borders for a cleaner look */
+.saldo-card-principal {
+  grid-column: 1 / -1;
+}
+
+.saldo-card-label {
+  font-size: 12px;
+  color: var(--muted-foreground);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.saldo-card-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--foreground);
+  margin-bottom: 8px;
+}
+
+.saldo-card-principal .saldo-card-value {
+  font-size: 40px;
+  color: var(--primary);
+}
+
+.saldo-card-detail {
+  font-size: 13px;
+  color: var(--muted-foreground);
+}
+
+/* Alerta de vencimientos */
+.alert-vencimiento {
+  background: var(--warning-bg);
+  border: 1px solid var(--warning);
+  border-radius: var(--border-radius-md);
+  padding: 12px 16px;
+  margin-bottom: 32px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.alert-icon {
+  color: var(--warning);
+}
+
+.alert-text {
+  color: #a16207; /* Darker warning text for accessibility */
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Calendario Financiero */
+.calendario-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+/* Reusing .box for calendar for consistency */
+.calendario-box {
+  background: var(--card);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.calendario-header {
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.calendario-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--foreground);
+  margin: 0;
+}
+
+.calendario-total {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.total-cobrar {
+  color: var(--success);
+}
+
+.total-pagar {
+  color: var(--danger);
+}
+
+.calendario-content {
+  padding: 8px 16px; /* Reduced padding for items */
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.fecha-grupo {
+  margin-bottom: 16px;
+}
+
+.fecha-header {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--muted-foreground);
+  margin: 16px 8px 8px;
+}
+
+.concepto-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 8px;
+  margin-bottom: 4px;
+  border-radius: var(--border-radius-md);
+  font-size: 14px;
+  transition: background-color 0.2s;
+  border: 1px solid transparent; /* Prepare for hover border */
+}
+
+.concepto-item:hover {
+  background: var(--background);
+}
+
+/* Removed colored backgrounds; status is shown by text color */
+.concepto-cobrar {
+  background: rgba(0, 200, 81, 0.05);
+  border-left: 3px solid #00c851;
+}
+
+.concepto-pagar {
+  background: rgba(255, 68, 68, 0.05);
+  border-left: 3px solid #ff4444;
+}
+
+.concepto-descripcion {
+  flex: 1;
+  margin-right: 16px;
+}
+
+.concepto-proyecto {
+  font-size: 12px;
+  color: var(--muted-foreground);
+  margin-top: 2px;
+}
+
+.concepto-monto {
+  font-weight: 500;
+}
+
+.monto-cobrar {
+  color: var(--success);
+}
+
+.monto-pagar {
+  color: var(--danger);
+}
+
+.no-data {
+  text-align: center;
+  color: var(--muted-foreground);
+  font-style: normal;
+  padding: 40px 20px;
+  font-size: 14px;
+}
+
+/* Generic Box/Card styles */
+.box {
+  background: var(--card);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+
+.box-header {
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.box-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--foreground);
+  margin: 0;
+}
+
+.box-content {
+  padding: 24px;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 16px;
+}
+
+.tab {
+  padding: 8px 4px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--muted-foreground);
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+}
+
+.tab.active {
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+}
+
+.tab:hover {
+  color: var(--foreground);
+}
+
+/* Table */
+.table-container {
+  border: 1px solid var(--border);
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.table th {
+  background: var(--background);
+  color: var(--muted-foreground);
+  font-weight: 500;
+  padding: 12px 24px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.table td {
+  background: var(--card);
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+
+.table tr:hover td {
+  background: var(--background);
+}
+
+.table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Badges */
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 9999px; /* Pill shape */
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: capitalize;
+  letter-spacing: normal;
+}
+
+.badge-efectivo, .badge-pagado {
+  background: var(--success-bg);
+  color: var(--success);
+}
+
+.badge-transferencia {
+  background: var(--info-bg);
+  color: var(--info);
+}
+
+.badge-cheque, .badge-pendiente {
+  background: var(--warning-bg);
+  color: #b45309; /* Darker warning text */
+}
+
+.badge-vencido {
+  background: var(--danger-bg);
+  color: var(--danger);
+}
+
+.currency-danger {
+  color: var(--danger);
+  font-weight: 500;
+}
+
+.currency-positive {
+  color: var(--success);
+  font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+    padding: 0 16px;
+  }
+
+  .header-actions {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .dashboard-container {
+    padding: 0 16px;
+  }
+
+  .saldo-consolidado,
+  .calendario-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .box-header, .box-content, .table th, .table td {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .tabs {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .tab {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+}
