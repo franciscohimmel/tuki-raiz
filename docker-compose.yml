@@ -1,11 +1,23 @@
-version: "3.9"
+version: '3.8'
 
 services:
-  react-app:
+  tuki-app:
     build:
       context: .
       dockerfile: Dockerfile
+    container_name: tuki-react-app
     ports:
-      - "3001:8080"   # 3001 es el puerto externo (en tu VPS), 8080 el interno (en el contenedor)
-    restart: always
+      - "3001:3000"  # Puerto 3001 externo, 3000 interno
+    environment:
+      - NODE_ENV=production
+      # Agrega aquí tus variables del .env
+      - REACT_APP_API_URL=${REACT_APP_API_URL}
+      - REACT_APP_DATABASE_URL=${REACT_APP_DATABASE_URL}
+      # Añade todas las variables que necesites
+    restart: unless-stopped
+    networks:
+      - tuki-network
 
+networks:
+  tuki-network:
+    driver: bridge
